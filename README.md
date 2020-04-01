@@ -2,8 +2,6 @@
 This repository contains all of the bits and pieces of my Unit One Project from my General Assembly Course
 
 
-
-<------------------------------------------------------------------------->
 The title of my Unit One Project will be "Matching With Mozart"
 
 The basic outline is this;
