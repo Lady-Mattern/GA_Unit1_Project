@@ -2,6 +2,10 @@
     border: 1px solid gold;
 }
 
+/* ===================================== */
+/* STYLING THE GAME BOARD */
+/* ===================================== */
+
 body {
     background-color: darkblue;
     background-image: url(https://cdn.wallpapersafari.com/89/7/MDjn9s.jpg);
@@ -26,12 +30,35 @@ header {
 
 img {
     width: 500px;
+    border-radius: 300px;
 }
 
 #levelDiv {
-    width: 100%;
+    width: 50%;
+    height: 400px;
+    margin: 20px auto;
+    border-radius: 20%;;
+    background-color: darkblue;
     text-align: center;
-    color: black;
+    color: ivory;
+}
+
+#level {
+    font-size: 3em;
+    margin: 20px 0 0 0;
+}
+
+#levelCounter {
+    font-size: 4em;
+    margin: 0;
+}
+
+#reset {
+    padding: 10px;
+    margin: 40px;
+    font-size: 40px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* =============================== */
@@ -92,4 +119,12 @@ img {
 
 #pianoDiv:last-child {
     border-radius: 0 5px 5px 5px;
+}
+
+#c, #d, #e, #f, #g, #a, #b {
+    cursor: pointer;
+}
+
+#c:hover {
+    background-color: orange;
 }
