@@ -67,17 +67,6 @@ $(() => {
     //RESET EVENT
     $('#reset').on('click', restartGame);
 
-    //AUDIO EVENTS
-    // $('#cKey').on('click', ()=>{
-    //     $('#c').play();
-    // })
-    $('#cKey').on('click', '#c', playAudioC);
-    // $('#dKey').on('click', playAudio);
-    // $('#eKey').on('click', playAudio);
-    // $('#fKey').on('click', playAudio);
-    // $('#gKey').on('click', playAudio);
-    // $('#aKey').on('click', playAudio);
-    // $('#bKey').on('click', playAudio);
 });
 
 //maybe later I should add a free play section so players can just make noise on the piano to understand what they are hearing
