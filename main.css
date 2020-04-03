@@ -8,7 +8,7 @@
 
 body {
     background-color: darkblue;
-    background-image: url(https://cdn.wallpapersafari.com/89/7/MDjn9s.jpg);
+    background-image: url(https://i.pinimg.com/originals/68/61/79/686179440f2c31e40358a6696d8478eb.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -16,12 +16,17 @@ body {
 
 header {
     text-align: center;
-    color: black;
+    color: ivory;
+    background-color: darkblue;
+}
+
+h1 {
+    font-size: 4em;
 }
 
 #container {
     display: flex;
-    width: 90%;
+    justify-content: center;
 }
 
 #imageDiv {
@@ -31,13 +36,14 @@ header {
 img {
     width: 500px;
     border-radius: 300px;
+    margin-left: 100px;
 }
 
 #levelDiv {
-    width: 50%;
+    width: 500px;
     height: 400px;
-    margin: 20px auto;
-    border-radius: 20%;;
+    margin: 0 60px;
+    border-radius: 20%;
     background-color: darkblue;
     text-align: center;
     color: ivory;
@@ -86,7 +92,7 @@ img {
     position: relative;
 }
 
-#pianoDiv #f {
+#pianoDiv #fKey {
     margin: 0;
 }
 
@@ -121,10 +127,10 @@ img {
     border-radius: 0 5px 5px 5px;
 }
 
-#c, #d, #e, #f, #g, #a, #b {
+#cKey, #dKey, #eKey, #fKey, #gKey, #aKey, #bKey {
     cursor: pointer;
 }
 
-#c:hover {
+.whiteKey:hover {
     background-color: orange;
 }
