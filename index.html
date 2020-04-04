@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matching With Mozart</title>
     <link rel="stylesheet" href="main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -12,6 +14,7 @@
         <h1>Matching With Mozart</h1>
     </header>
 
+        <!-- IMAGE AND LEVEL INFORMATION -->
         <div id="container">
 
             <div id="imgDiv">
@@ -27,6 +30,7 @@
 
         </div>
     
+        <!-- PIANO CONTENT -->
         <div id="pianoDiv">
             <div class="whiteKey" data-key="65">C</div>
             <div class="blackKey"></div>
@@ -42,6 +46,7 @@
             <div class="whiteKey" data-key="76">B</div>
         </div>
 
+        <!-- KEY BINDING LABELS FOR THE PIANO -->
         <table>
             <tr>
                 <td>^</td>
@@ -63,6 +68,7 @@
             </tr>
         </table>
 
+        <!-- AUDIO CONTENT -->
             <audio src="Audio/middle_c.mp3" data-key="65"></audio>
             <audio src="Audio/middle_d.mp3" data-key="83"></audio>
             <audio src="Audio/middle_e.mp3" data-key="68"></audio>
@@ -70,6 +76,39 @@
             <audio src="Audio/middle_g.mp3" data-key="74"></audio>
             <audio src="Audio/middle_a.mp3" data-key="75"></audio>
             <audio src="Audio/middle_b.mp3" data-key="76"></audio>
+
+            <!-- MODALS -->
+        <div id="startModal" class="modal">
+            <div class="modal-content">
+                <h1>Welcome!</h1>
+                <p>Mozart has challenged you to a piano duel!</p>
+                <h2>Here is how to beat Mozart!</h2>
+                <p>Mozart will start by playing some notes on his piano.</p>
+                <p>All you have to do is repeat what Mozart has played and you can beat him at his own game!</p>
+                <p>Each piano key matches a key on your computer keyboard.</p>
+                <ul>
+                    <li>C is set to the A Key</li>
+                    <li>D is set to the S Key</li>
+                    <li>E is set to the D Key</li>
+                    <li>F is set to the F Key</li>
+                    <li>G is set to the J key</li>
+                    <li>A is set to the K Key</li>
+                    <li>B is set to the L Key</li>
+                </ul>
+    
+                <button id="play">Challenge Accepted!</button>
+            </div>
+        </div>
+
+        <div id="endModal" class="modal">
+            <div class="modal-content">
+                <h1>YOU WIN!</h1>
+                <p>Congratulations! You've bested the great Mozart!</p>
+                <p>Want to play again?</p>
+                <input type="reset" id="playAgain" value="YES!">
+            </div>
+
+        </div>
 
 
 

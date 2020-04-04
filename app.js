@@ -1,19 +1,22 @@
 console.log("I'm alive!");
 
 //computer moves through each key value pair to represent the progression of levels. Note selections are hard coded in
-//if the playerTurn === to the current level selection, then they player can move on or increment the counter
 const levels = {
-    levelOne: ['keycode', '#g', '#a'],
-    levelTwo: ['#e', '#d', '#c'],
-    levelThree: ['#g', '#b', '#a'],
-    levelFour: ['#c', '#e', '#g', '#b'],
-    levelFive: ['#c', '#d', '#e', '#d', '#c']
+    levelOne: ['70', '74', '75'],
+    levelTwo: ['68', '83', '65'],
+    levelThree: ['75', '76', '75'],
+    levelFour: ['65', '68', '75', '76'],
+    levelFive: ['65', '83', '68', '83', '65']
 }
 
 //the notes the player click on get pushed to this array each level and compared with the level array
 const playerChoice = [];
 
-//gives the player instructions for how to play the game
+const hideModal = (event) => {
+    event = $('#startModal').css('display', 'none');
+    setUpGame();
+}
+
 //if the player chooses to play, then the computer's function is invoked to start playing random notes to match
 const setUpGame = () => {
     // prompt("Mozart has challenged you to a piano playoff! Do you accept?", "yes/no");
@@ -47,8 +50,11 @@ const playerTurn = () => {
 
 //gives the player the option of starting over at any time
 const restartGame = (event) => {
-    const $button = $(event.currentTarget);
-    window.location.reload();
+    event = window.location.reload();
+}
+
+const playAgain = (event) => {
+    event = window.location.reload();
 }
 
 //==============================//
@@ -56,16 +62,26 @@ const restartGame = (event) => {
 //==============================//
 
 const playAudio = (event) => {
-    const sound = $(event.currentTarget);
+    const sound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${event.keyCode}"]`);
+    if (!sound) return;
+
+    key.classList.add('playing')
+    sound.currentTime = 0;
     sound.play();
 }
 
+window.addEventListener('keydown', playAudio);
+
 $(() => {
-    //FUNCTION TO SET UP GAME
-    setUpGame();
+    //HIDE THE MODAL AND START THE GAME
+    $('#play').on('click', hideModal);
 
     //RESET EVENT
     $('#reset').on('click', restartGame);
+
+    //PLAY AGAIN
+    $('#playAgain').on('click', playAgain);
 
 });
 
