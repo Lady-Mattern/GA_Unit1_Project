@@ -1,6 +1,5 @@
 console.log("I'm alive!");
 
-//computer moves through each key value pair to represent the progression of levels. Note selections are hard coded in
 const levels = {
     levelOne: ['70', '74', '75'],
     levelTwo: ['68', '83', '65'],
@@ -9,46 +8,40 @@ const levels = {
     levelFive: ['65', '83', '68', '83', '65']
 }
 
-//the notes the player click on get pushed to this array each level and compared with the level array
 const playerChoice = [];
+
+const gameLevel = 1;
+
+const counter = 0;
 
 const hideModal = (event) => {
     event = $('#startModal').css('display', 'none');
-    setUpGame();
-}
-
-//if the player chooses to play, then the computer's function is invoked to start playing random notes to match
-const setUpGame = () => {
-    // prompt("Mozart has challenged you to a piano playoff! Do you accept?", "yes/no");
-    // if (prompt === 'yes') {
-    //     mozartTurn()
-    // } else if (prompt === 'no') {
-    //     alert("Better luck next time! Come and play again!");
-    // }
+    mozartTurn()
 }
 
 const mozartTurn = () => {
-    //display speech bubble that says the alert message
-    alert("here we go!");
-    //pass in levels.levelOne[i];
-    //plays notes for the user to match
+    $('#mozartTurn').css('display', 'block');
+    
 }
 
 const playerTurn = () => {
-    //player matches the notes given by the computer
-    //if the notes match, move on to next level, level counter is incremented
-    //if the notes do not match alert game over and give option to play again
-    //each note the player clicks will get pushed into an array that can be matched to each level
-    //example: 
-    // $('.whiteKey').click(playerChoice.push(//classname))
-    if (playerChoice === levels.levelOne) {
-        levelCount++;
-        playerChoice.empty();
+    // const playerChoice = 
+    // if (playerChoice === levels.levelOne) {
+    //     levelCount++;
+    //     playerChoice.empty();
+    // }
+    gameLevel++;
+    checkForWin();
+}
+
+const checkForWin = () => {
+    if (gameLevel === 5) {
+        $('endModal').css('display', 'block');
+    } else {
         mozartTurn();
     }
 }
 
-//gives the player the option of starting over at any time
 const restartGame = (event) => {
     event = window.location.reload();
 }
