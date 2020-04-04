@@ -238,14 +238,17 @@ B.addEventListener('click', (event)=>{
 //     checkForWin();
 // }
 
+//This function should actually be checkForWin
+//Checks the playerChoice against mozartChoice array every turn
 const check = () => {
     if (playerChoice[playerChoice.length - 1] !== mozartChoice[playerChoice.length - 1]) {
         success = false;
     }
-
 }
 
+//This function should actually be the winningScenario
 const winGame = () => {
+    $('#endModal').css('display', 'block');
 }
 
 const restartGame = (event) => {
