@@ -1,45 +1,73 @@
 console.log("I'm alive!");
 
-const levels = {
-    levelOne: ['70', '74', '75'],
-    levelTwo: ['68', '83', '65'],
-    levelThree: ['75', '76', '75'],
-    levelFour: ['65', '68', '75', '76'],
-    levelFive: ['65', '83', '68', '83', '65']
-}
+let mozartChoice = [];
+let playerChoice = [];
+let flash;
+let turn;
+let success;
+let mozTurn;
+let intervalId;
+let gameLevel;
+let noise = true;
+let win;
 
-const playerChoice = [];
-
-const gameLevel = 1;
-
-const counter = 0;
+const levelCounter = document.querySelector('#levelCounter');
+const C = document.querySelector('#c');
+const D = document.querySelector('#d');
+const E = document.querySelector('#e');
+const F = document.querySelector('#f');
+const G = document.querySelector('#g');
+const A = document.querySelector('#a');
+const B = document.querySelector('#b');
 
 const hideModal = (event) => {
     event = $('#startModal').css('display', 'none');
+    gameSetUp()
     mozartTurn()
+}
+
+const gameSetUp = () => {
+    win = false;
+    order = [];
+    playerChoice = [];
+    flash = 0;
+    intervalId = 0;
+    turn = 1;
+    gameLevel.innerHTML = 1;
+    success = true;
+    for (let i = 0; i < 5; i++) {
+        mozartChoice.push(Math.floor(Math.random() * 8) + 1);
+    }
+    mozTurn = true;
+    intervalId = setInterval(gameTurn, 800);
 }
 
 const mozartTurn = () => {
     $('#mozartTurn').css('display', 'block');
-    
+
+
+    // playerTurn();
 }
 
 const playerTurn = () => {
-    // const playerChoice = 
-    // if (playerChoice === levels.levelOne) {
-    //     levelCount++;
-    //     playerChoice.empty();
-    // }
-    gameLevel++;
+    $('#playerTurn').css('display', 'block');
+    window.addEventListener('keydown', playAudio);
+    playerChoice.push(keyCode);
+    if (playerChoice === levels) {
+
+    }
+    turnCounter.innerHTML = 
     checkForWin();
 }
 
-const checkForWin = () => {
-    if (gameLevel === 5) {
-        $('endModal').css('display', 'block');
-    } else {
-        mozartTurn();
+const check = () => {
+    if (playerChoice[playerChoice.length - 1] !== mozChoice[playerChoice.length - 1]) {
+
     }
+
+}
+
+const windGame = () => {
 }
 
 const restartGame = (event) => {
@@ -49,10 +77,6 @@ const restartGame = (event) => {
 const playAgain = (event) => {
     event = window.location.reload();
 }
-
-//==============================//
-//CREATING THE AUDIO
-//==============================//
 
 const playAudio = (event) => {
     const sound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
@@ -64,9 +88,10 @@ const playAudio = (event) => {
     sound.play();
 }
 
-window.addEventListener('keydown', playAudio);
-
 $(() => {
+    //INITIAL GAME SET UP
+    gameSetUp();
+
     //HIDE THE MODAL AND START THE GAME
     $('#play').on('click', hideModal);
 
