@@ -7,7 +7,6 @@ let turn;
 let success;
 let mozTurn;
 let intervalId;
-let gameLevel;
 let noise = true;
 let win;
 
@@ -20,20 +19,15 @@ const G = document.querySelector('#g');
 const A = document.querySelector('#a');
 const B = document.querySelector('#b');
 
-const hideModal = (event) => {
+const gameSetUp = (event) => {
     event = $('#startModal').css('display', 'none');
-    gameSetUp()
-    mozartTurn()
-}
-
-const gameSetUp = () => {
     win = false;
-    order = [];
+    mozartChoice = [];
     playerChoice = [];
     flash = 0;
     intervalId = 0;
     turn = 1;
-    gameLevel.innerHTML = 1;
+    levelCounter.innerHTML = 1;
     success = true;
     for (let i = 0; i < 5; i++) {
         mozartChoice.push(Math.floor(Math.random() * 8) + 1);
@@ -42,32 +36,216 @@ const gameSetUp = () => {
     intervalId = setInterval(gameTurn, 800);
 }
 
-const mozartTurn = () => {
-    $('#mozartTurn').css('display', 'block');
+//SWITCHING BETWEEN MOZART'S TURN AND PLAYER'S TURN
+const gameTurn = () => {
+    // if (flash == turn) {
+    //     clearInterval(intervalId);
+    //     mozTurn = false;
+    //     $('#playerTurn').css('display', 'block');
+    //     clearColor();
+    // }
 
-
-    // playerTurn();
-}
-
-const playerTurn = () => {
-    $('#playerTurn').css('display', 'block');
-    window.addEventListener('keydown', playAudio);
-    playerChoice.push(keyCode);
-    if (playerChoice === levels) {
-
+    if (mozTurn) {
+        $('#mozartTurn').css('display', 'block');
+        clearColor();
+        setTimeout(() => {
+            if (mozartChoice[flash] == 1) one();
+            if (mozartChoice[flash] == 2) two();
+            if (mozartChoice[flash] == 3) three();
+            if (mozartChoice[flash] == 4) four();
+            if (mozartChoice[flash] == 5) five();
+            if (mozartChoice[flash] == 6) six();
+            if (mozartChoice[flash] == 7) seven();
+            flash++
+        }, 200);
     }
-    turnCounter.innerHTML = 
-    checkForWin();
 }
+
+//HANDLING THE AUDIO
+
+const one = () => {
+    if (noise) {
+        let audio = document.getElementById('#c-clip');
+        audio.play();
+    }
+    noise = true;
+    C.style.backgroundColor = 'orange';
+}
+
+// const two = () => {
+//     if (noise) {
+//         let audio = document.getElementById('#d-clip');
+//         audio.play();
+//     }
+//     noise = true;
+//     D.style.backgroundColor = 'orange';
+// }
+
+// const three = () => {
+//     if (noise) {
+//         let audio = document.getElementById('#e-clip');
+//         audio.play();
+//     }
+//     noise = true;
+//     E.style.backgroundColor = 'orange';
+// }
+
+// const four = () => {
+//     if (noise) {
+//         let audio = document.getElementById('#f-clip');
+//         audio.play();
+//     }
+//     noise = true;
+//     F.style.backgroundColor = 'orange';
+// }
+
+// const five = () => {
+//     if (noise) {
+//         let audio = document.getElementById('#g-clip');
+//         audio.play();
+//     }
+//     noise = true;
+//     G.style.backgroundColor = 'orange';
+// }
+
+// const six = () => {
+//     if (noise) {
+//         let audio = document.getElementById('#a-clip');
+//         audio.play();
+//     }
+//     noise = true;
+//     A.style.backgroundColor = 'orange';
+// }
+
+// const seven = () => {
+//     if (noise) {
+//         let audio = document.getElementById('#b-clip');
+//         audio.play();
+//     }
+//     noise = true;
+//     B.style.backgroundColor = 'orange';
+// }
+
+
+const clearColor = () => {
+    C.style.backgroundColor = 'ivory';
+    D.style.backgroundColor = 'ivory';
+    E.style.backgroundColor = 'ivory';
+    F.style.backgroundColor = 'ivory';
+    G.style.backgroundColor = 'ivory';
+    A.style.backgroundColor = 'ivory';
+    B.style.backgroundColor = 'ivory';
+}
+
+const flashColor = () => {
+    C.style.backgroundColor = 'orange';
+    D.style.backgroundColor = 'orange';
+    E.style.backgroundColor = 'orange';
+    F.style.backgroundColor = 'orange';
+    G.style.backgroundColor = 'orange';
+    A.style.backgroundColor = 'orange';
+    B.style.backgroundColor = 'orange';
+}
+
+window.addEventListener('keydown', (event)=>{
+        playerChoice.push(1);
+        check();
+        playAudio();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    console.log(playerChoice);
+})
+
+D.addEventListener('click', (event)=>{
+        playerChoice.push(2);
+        check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+})
+
+E.addEventListener('click', (event)=>{
+        playerChoice.push(3);
+        check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+})
+
+F.addEventListener('click', (event)=>{
+        playerChoice.push(4);
+        check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+})
+
+G.addEventListener('click', (event)=>{
+        playerChoice.push(5);
+        check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+})
+
+A.addEventListener('click', (event)=>{
+        playerChoice.push(6);
+        check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+})
+
+B.addEventListener('click', (event)=>{
+        playerChoice.push(7);
+        check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+})
+
+// const mozartTurn = () => {
+//     // playerTurn();
+// }
+
+// const playerTurn = () => {
+//     playerChoice.push(keyCode);
+//     if (playerChoice === levels) {
+
+//     }
+//     turnCounter.innerHTML = 
+//     checkForWin();
+// }
 
 const check = () => {
-    if (playerChoice[playerChoice.length - 1] !== mozChoice[playerChoice.length - 1]) {
-
+    if (playerChoice[playerChoice.length - 1] !== mozartChoice[playerChoice.length - 1]) {
+        success = false;
     }
 
 }
 
-const windGame = () => {
+const winGame = () => {
 }
 
 const restartGame = (event) => {
@@ -87,13 +265,14 @@ const playAudio = (event) => {
     sound.currentTime = 0;
     sound.play();
 }
+    window.addEventListener('keydown', playAudio);
 
 $(() => {
-    //INITIAL GAME SET UP
-    gameSetUp();
+
+    // window.addEventListener('keydown', playAudio);
 
     //HIDE THE MODAL AND START THE GAME
-    $('#play').on('click', hideModal);
+    $('#play').on('click', gameSetUp);
 
     //RESET EVENT
     $('#reset').on('click', restartGame);
