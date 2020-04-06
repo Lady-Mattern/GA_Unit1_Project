@@ -38,12 +38,12 @@ const gameSetUp = (event) => {
 
 //SWITCHING BETWEEN MOZART'S TURN AND PLAYER'S TURN
 const gameTurn = () => {
-    // if (flash == turn) {
-    //     clearInterval(intervalId);
-    //     mozTurn = false;
-    //     $('#playerTurn').css('display', 'block');
-    //     clearColor();
-    // }
+    if (flash == turn) {
+        clearInterval(intervalId);
+        mozTurn = false;
+        $('#playerTurn').css('display', 'block');
+        clearColor();
+    }
 
     if (mozTurn) {
         $('#mozartTurn').css('display', 'block');
@@ -62,7 +62,6 @@ const gameTurn = () => {
 }
 
 //HANDLING THE AUDIO
-
 const one = () => {
     if (noise) {
         let audio = document.getElementById('#c-clip');
@@ -72,59 +71,59 @@ const one = () => {
     C.style.backgroundColor = 'orange';
 }
 
-// const two = () => {
-//     if (noise) {
-//         let audio = document.getElementById('#d-clip');
-//         audio.play();
-//     }
-//     noise = true;
-//     D.style.backgroundColor = 'orange';
-// }
+const two = () => {
+    if (noise) {
+        let audio = document.getElementById('#d-clip');
+        audio.play();
+    }
+    noise = true;
+    D.style.backgroundColor = 'orange';
+}
 
-// const three = () => {
-//     if (noise) {
-//         let audio = document.getElementById('#e-clip');
-//         audio.play();
-//     }
-//     noise = true;
-//     E.style.backgroundColor = 'orange';
-// }
+const three = () => {
+    if (noise) {
+        let audio = document.getElementById('#e-clip');
+        audio.play();
+    }
+    noise = true;
+    E.style.backgroundColor = 'orange';
+}
 
-// const four = () => {
-//     if (noise) {
-//         let audio = document.getElementById('#f-clip');
-//         audio.play();
-//     }
-//     noise = true;
-//     F.style.backgroundColor = 'orange';
-// }
+const four = () => {
+    if (noise) {
+        let audio = document.getElementById('#f-clip');
+        audio.play();
+    }
+    noise = true;
+    F.style.backgroundColor = 'orange';
+}
 
-// const five = () => {
-//     if (noise) {
-//         let audio = document.getElementById('#g-clip');
-//         audio.play();
-//     }
-//     noise = true;
-//     G.style.backgroundColor = 'orange';
-// }
+const five = () => {
+    if (noise) {
+        let audio = document.getElementById('#g-clip');
+        audio.play();
+    }
+    noise = true;
+    G.style.backgroundColor = 'orange';
+}
 
-// const six = () => {
-//     if (noise) {
-//         let audio = document.getElementById('#a-clip');
-//         audio.play();
-//     }
-//     noise = true;
-//     A.style.backgroundColor = 'orange';
-// }
+const six = () => {
+    if (noise) {
+        let audio = document.getElementById('#a-clip');
+        audio.play();
+    }
+    noise = true;
+    A.style.backgroundColor = 'orange';
+}
 
-// const seven = () => {
-//     if (noise) {
-//         let audio = document.getElementById('#b-clip');
-//         audio.play();
-//     }
-//     noise = true;
-//     B.style.backgroundColor = 'orange';
-// }
+const seven = () => {
+    if (noise) {
+        let audio = document.getElementById('#b-clip');
+        audio.play();
+    }
+    noise = true;
+    B.style.backgroundColor = 'orange';
+}
 
 
 const clearColor = () => {
